@@ -1,7 +1,7 @@
 #ifndef NODE_H_
 #define NODE_H_
 
-#include "pos.h"
+#include "Pos.h"
 #include "utils.h"
 
 class Node {
@@ -26,10 +26,15 @@ public:
     void setValid(bool validation) { is_valid_ = validation; }
 
 
+
+    bool operator == ( const Node& node2){
+    return ((position_ == node2.getPos()) && (is_valid_ == node2.getValid()));
+    }
 private:
     Pos position_;
     bool is_valid_;
 };
+
 
 
 #endif
