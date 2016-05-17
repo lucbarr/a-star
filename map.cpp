@@ -5,13 +5,13 @@
 
 
 void Map::setStartNode(Pos start_pos){
-    start_pos_.setPos(start_pos);
-    start_pos_.setValid(true);
+    start_node_.setPos(start_pos);
+    start_node_.setValid(true);
 }
 
 void Map::setEndNode(Pos end_pos){
-    end_pos_.setPos(end_pos);
-    end_pos_.setValid(true);
+    end_node_.setPos(end_pos);
+    end_node_.setValid(true);
 }
 
 
@@ -65,8 +65,14 @@ Map::Map(const char* file_name){
 void Map::printMap(){
     for (int i = 0 ; i < this->getNofRows()-1 ; ++i ){
         for (int j = 0 ; j < this->getNofColumns()-1 ; ++j ){
-            if(map_[i].at(j).getValid()){
-                std::cout << ".";
+            if(map_[i].at(j) == this->getStartNode()){
+                std::cout << START_SYMBOL;
+            }
+            else if (map_[i].at(j) == this->getEndNode()){
+                std::cout << END_SYMBOL;
+            }
+            else if(map_[i].at(j).getValid()){
+                std::cout << VALID_SYMBOL;
             }
             else {
                 std::cout << "X";

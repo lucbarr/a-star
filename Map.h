@@ -7,6 +7,7 @@
 #include "Node.h"
 #include "utils.h"
 
+
 class Map {
 public:
     std::vector<Node> map_[MAX_SIZE];
@@ -20,11 +21,13 @@ public:
 
     int getNofRows() const { return n_of_rows_; }
     int getNofColumns() const { return n_of_columns_; }
-    
+    Node getStartNode() const { return start_node_; }
+    Node getEndNode() const { return end_node_; }
     void printMap();
+
 private:
-    Node start_pos_;
-    Node end_pos_;
+    Node start_node_;
+    Node end_node_;
     int n_of_rows_;
     int n_of_columns_;
 };
