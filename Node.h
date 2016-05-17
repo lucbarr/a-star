@@ -6,6 +6,7 @@
 
 class Node {
 public:
+
     Node(Pos position, bool is_valid) : 
         position_(position),
         is_valid_(is_valid)
@@ -21,10 +22,13 @@ public:
         {};
     Pos getPos() const { return position_; }
     bool getValid() const { return is_valid_; }
+    float getGValue() const { return g_value_; }
+    float getHValue() const { return h_value_; }
 
     void setPos(Pos newpos) { position_ = newpos; }
     void setValid(bool validation) { is_valid_ = validation; }
-
+    void setGValue(float g_value) { g_value_ = g_value; }
+    void setHValue(float h_value) { h_value_ = h_value; }
 
 
     bool operator == ( const Node& node2){
@@ -33,6 +37,8 @@ public:
 private:
     Pos position_;
     bool is_valid_;
+    float g_value_;
+    float h_value_;
 };
 
 
