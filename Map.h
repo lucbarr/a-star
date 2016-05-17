@@ -23,6 +23,7 @@ public:
     int getNofColumns() const { return n_of_columns_; }
     Node getStartNode() const { return start_node_; }
     Node getEndNode() const { return end_node_; }
+
     void printMap();
 
 private:

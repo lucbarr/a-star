@@ -1,7 +1,7 @@
 #ifndef UTILS_H
 #define UTILS_H
 
-#include "pos.h"
+#include "Pos.h"
 
 const Pos UP ( 0 , -1 );
 const Pos DOWN ( 0 , 1 );

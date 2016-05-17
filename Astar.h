@@ -1,9 +1,8 @@
 #ifndef ASTAR_H
 #define ASTAR_H
 
-#include <vector.h>
-
 #include "Node.h"
+#include "Map.h"
 
 class Astar {
 public:
@@ -15,6 +14,9 @@ private:
    Map* algo_map_;
    std::vector<Node> priority_nodes_;
    std::vector<Node> path_;
-}
+};
 
+Astar::Astar(Map& algo_map){
+    algo_map_ = &algo_map;
+}
 #endif

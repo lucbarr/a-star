@@ -4,6 +4,7 @@
 #include <string.h>
 
 
+
 void Map::setStartNode(Pos start_pos){
     start_node_.setPos(start_pos);
     start_node_.setValid(true);
