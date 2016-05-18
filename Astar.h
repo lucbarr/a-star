@@ -8,8 +8,8 @@ class Astar {
 public:
     Astar(Map& algo_map);
  
-    float gCostFunction(Node node_obj);
-    float hCostFunction(Node node_obj);
+    int gCostFunction(int x, int y);
+    int hCostFunction(Node& node_obj);
 private:
    Map* algo_map_;
    std::vector<Node> priority_nodes_;
@@ -18,5 +18,10 @@ private:
 
 Astar::Astar(Map& algo_map){
     algo_map_ = &algo_map;
+}
+
+int Astar::gCostFunction(int x, int y){
+
+    algo_map_->map_[x].at(y).setGValue(10);
 }
 #endif

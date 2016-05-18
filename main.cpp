@@ -10,5 +10,6 @@ int main (){
     Map map1("demo/map.txt");
     Astar algo(map1);
     map1.printMap();
+    algo.gCostFunction(1, 1);
     return 0;
 }
