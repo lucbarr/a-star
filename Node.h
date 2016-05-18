@@ -7,18 +7,22 @@
 class Node {
 public:
 
-    Node(Pos position, bool is_valid) : 
+    Node(Pos position, bool is_valid) :
         position_(position),
         is_valid_(is_valid)
         {};
-   
+
     Node():
         position_(NULLPOS),
-        is_valid_(false)
+        is_valid_(false),
+        g_value_( 999 ),
+        h_value_( 999 )
         {};
     Node(const Node& obj):
         position_( obj.position_ ),
-        is_valid_( obj.is_valid_ )
+        is_valid_( obj.is_valid_ ),
+        g_value_( obj.g_value_ ),
+        h_value_( obj.h_value_ )
         {};
     Pos getPos() const { return position_; }
     bool getValid() const { return is_valid_; }

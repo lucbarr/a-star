@@ -11,5 +11,7 @@ int main (){
     Astar algo(map1);
     map1.printMap();
     algo.gCostFunction(1, 1);
+    cout << map1.map_[1].at(1).getGValue();
+
     return 0;
 }

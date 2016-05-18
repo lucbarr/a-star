@@ -11,6 +11,4 @@ struct Pos {
     }
 };
 
- 
-
 #endif
