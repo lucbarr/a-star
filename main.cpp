@@ -1,7 +1,6 @@
 #include <iostream>
 #include <fstream>
 
-
 #include "Map.h"
 #include "Astar.h"
 
