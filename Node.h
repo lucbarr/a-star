@@ -7,6 +7,8 @@
 class Node {
 public:
 
+    // Constructors
+
     Node(Pos position, bool is_valid) :
         position_(position),
         is_valid_(is_valid)
@@ -24,17 +26,25 @@ public:
         g_value_( obj.g_value_ ),
         h_value_( obj.h_value_ )
         {};
+
+    // Get methods
+
     Pos getPos() const { return position_; }
     bool getValid() const { return is_valid_; }
     int getGValue() const { return g_value_; }
     int getHValue() const { return h_value_; }
     int getFValue() const { return (g_value_ + h_value_);}
 
+    // Set methods
+
     void setPos(Pos newpos) { position_ = newpos; }
     void setValid(bool validation) { is_valid_ = validation; }
     void setGValue(int g_value) { g_value_ = g_value; }
     void setHValue(int h_value) { h_value_ = h_value; }
     void setFValue() { f_value_ = g_value_+h_value_; }
+
+    // Overloaded class comparison operators
+    // TODO: Refactor this (Astar.h priority queue comparison not working)
 
     bool operator == ( const Node& node2) const {
     return ((position_ == node2.getPos()) && (is_valid_ == node2.getValid()));
@@ -51,7 +61,6 @@ public:
             }
     }
 
-     //TODO: do this right
 private:
     Pos position_;
     bool is_valid_;
