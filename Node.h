@@ -34,33 +34,30 @@ public:
     void setValid(bool validation) { is_valid_ = validation; }
     void setGValue(int g_value) { g_value_ = g_value; }
     void setHValue(int h_value) { h_value_ = h_value; }
+    void setFValue() { f_value_ = g_value_+h_value_; }
 
-
-    bool operator == ( const Node& node2){
+    bool operator == ( const Node& node2) const {
     return ((position_ == node2.getPos()) && (is_valid_ == node2.getValid()));
     }
-    bool operator < ( const Node& node2){
-        if(this->getValid() && node2.getValid()){
-            if(this->getFValue() < node2.getFValue()){
+    bool operator < ( const Node& node2) const {
+            if(f_value_ < node2.getFValue()){
                 return true;
             }
-            else if(this->getFValue() == node2.getFValue()){
-                return (this->getGValue() < node2.getGValue());
+            else if(f_value_ == node2.getFValue()){
+                return (g_value_ < node2.getGValue());
             }
             else{
                 return false;
             }
+    }
 
-        }
-        else{
-            return false;
-        }
-    } //TODO: do this right
+     //TODO: do this right
 private:
     Pos position_;
     bool is_valid_;
     int g_value_;
     int h_value_;
+    int f_value_;
 };
 
 
