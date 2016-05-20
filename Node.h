@@ -48,27 +48,31 @@ public:
     // Overloaded class comparison operators
     // TODO: Refactor this (Astar.h priority queue comparison not working)
 
-    bool operator == ( const Node& node2) const {
-    return ((position_ == node2.getPos()) && (is_valid_ == node2.getValid()));
+    bool operator == ( const Node& n2) const {
+    return ((position_ == n2.getPos()) && (is_valid_ == n2.getValid()));
     }
-    bool operator < ( const Node& node2) const {
-            if(this->getFValue() < node2.getFValue()){
-                return true;
-            }
-            else if(this->getFValue() == node2.getFValue()){
-                return (this->getGValue() < node2.getGValue());
-            }
-            else{
-                return false;
-            }
-    }
-
 private:
     Pos position_;
     bool is_valid_;
     int g_value_;
     int h_value_;
     int f_value_;
+};
+
+struct NodeCompare
+{
+    bool operator()(Node const &n1, Node const &n2)
+    {
+            if(n1.getFValue() > n2.getFValue()){
+                return true;
+            }
+            else if(n1.getFValue() == n2.getFValue()){
+                return (n1.getGValue() > n2.getGValue());
+            }
+            else{
+                return false;
+            }
+    }
 };
 
 

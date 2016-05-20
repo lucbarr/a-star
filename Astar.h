@@ -20,8 +20,9 @@ public:
     // The algorith is biased to check for lesser f valued nodes. If two nodes has same f values,
     // it checks for the g values if they are the lowest.
 
-    std::priority_queue< Node , std::vector<Node> , std::less<Node> > open_list_; //TODO: Decide whether lists will be
-    std::priority_queue< Node , std::vector<Node> , std::less<Node> > closed_list_; // private or public.
+
+    std::priority_queue <Node, std::vector<Node> , NodeCompare > closed_list_; //TODO: Decide whether lists will be
+    std::priority_queue <Node, std::vector<Node> , NodeCompare > open_list_; // private or public.
 
     // g, h and f cost functions methods. It takes the position of the Node in the map you gave to your Astar
     // and sets g, h and f costs for that node.
