@@ -60,6 +60,8 @@ void Astar::generateAdj(int x, int y){
     }
 }
 
+// This is the algorithm itself. Still undone
+
 std::vector<Node> Astar::findPath(){
     Node aux_node;
     open_list_.push(algo_map_->getStartNode());
