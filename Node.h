@@ -11,7 +11,9 @@ public:
 
     Node(Pos position, bool is_valid) :
         position_(position),
-        is_valid_(is_valid)
+        is_valid_(is_valid),
+        g_value_( 999 ),
+        h_value_( 999 )
         {};
 
     Node():
@@ -50,11 +52,11 @@ public:
     return ((position_ == node2.getPos()) && (is_valid_ == node2.getValid()));
     }
     bool operator < ( const Node& node2) const {
-            if(f_value_ < node2.getFValue()){
+            if(this->getFValue() < node2.getFValue()){
                 return true;
             }
-            else if(f_value_ == node2.getFValue()){
-                return (g_value_ < node2.getGValue());
+            else if(this->getFValue() == node2.getFValue()){
+                return (this->getGValue() < node2.getGValue());
             }
             else{
                 return false;
