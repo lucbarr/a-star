@@ -44,7 +44,7 @@ public:
     void setGValue(int g_value) { g_value_ = g_value; }
     void setHValue(int h_value) { h_value_ = h_value; }
     void setFValue() { f_value_ = g_value_+h_value_; }
-
+    void setParent(Node& father_node){ parent_ = &father_node; }
     // Overloaded class comparison operators
     // TODO: Refactor this (Astar.h priority queue comparison not working)
 
@@ -52,6 +52,7 @@ public:
     return ((position_ == n2.getPos()) && (is_valid_ == n2.getValid()));
     }
 private:
+    Node* parent_;
     Pos position_;
     bool is_valid_;
     int g_value_;
@@ -61,17 +62,11 @@ private:
 
 struct NodeCompare
 {
-    bool operator()(Node const &n1, Node const &n2)
-    {
-            if(n1.getFValue() > n2.getFValue()){
-                return true;
-            }
-            else if(n1.getFValue() == n2.getFValue()){
-                return (n1.getGValue() > n2.getGValue());
-            }
-            else{
-                return false;
-            }
+    bool operator()(Node const &n1, Node const &n2){
+        if (n1.getFValue() == n2.getFValue()){
+            return n1.getGValue() > n2.getGValue();
+        }
+        return n1.getFValue() > n2.getFValue();
     }
 };
 

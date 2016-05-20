@@ -31,8 +31,10 @@ public:
     void hCostFunction(int x, int y);
     void fCostFunction(int x, int y); // TODO Refactor to pass Pos rather than x,y
 
+    std::vector<Node> findPath();
     // This method here is for simplifying the evaluation.
     void setValues(int x, int y);
+    void generateAdj(int x, int y);
 private:
    Map* algo_map_;
    std::vector<Node> path_;

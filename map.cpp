@@ -10,6 +10,9 @@
 void Map::setStartNode(Pos start_pos){
     start_node_.setPos(start_pos);
     start_node_.setValid(true);
+    start_node_.setGValue(0);
+    start_node_.setHValue(0);
+    start_node_.setFValue();
     return ;
 }
 
